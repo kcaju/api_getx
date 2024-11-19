@@ -1,5 +1,7 @@
+import 'package:api_getx/view/homescreen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Detailscreen extends StatelessWidget {
   const Detailscreen(
@@ -16,12 +18,26 @@ class Detailscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Detsil Screen"),
+        backgroundColor: Colors.black,
+        leading: IconButton(
+            onPressed: () {
+              Get.to(Homescreen());
+            },
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+            )),
+        title: Text(
+          "Details Screen",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               decoration: BoxDecoration(
@@ -33,21 +49,20 @@ class Detailscreen extends StatelessWidget {
               height: 400,
             ),
             SizedBox(
-              height: 10,
+              height: 20,
             ),
             Text(
               name,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
             ),
             Text(
-              price,
+              "price : $price",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             Text(
               status,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
-            Text(description),
+            )
           ],
         ),
       ),
